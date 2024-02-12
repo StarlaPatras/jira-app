@@ -32,9 +32,14 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
 
   const deleteHandler = async () => {
     try {
-      await sendReq(`http://localhost:4000/api/project/${id}`, "DELETE", null, {
-        Authorization: "Bearer " + auth.token,
-      });
+      await sendReq(
+        `https://team-forge-backend-zdrga.ondigitalocean.app/api/project/${id}`,
+        "DELETE",
+        null,
+        {
+          Authorization: "Bearer " + auth.token,
+        }
+      );
       onDelete(id);
     } catch (err) {
       console.error("Error deleting project:", err);
@@ -74,7 +79,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
           </p>
           <div className="flex items-center justify-center gap-5 pb-[40px]">
             <Button
-              className="text-gray-600 bg-gray-200"
+              className="text-gray-600 transition-all bg-gray-200 hover:bg-gray-300"
               onClick={() => setOpenErrorModal(false)}
             >
               Cancel

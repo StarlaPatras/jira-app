@@ -39,26 +39,6 @@ const NewProject = () => {
 
   const { handleSubmit, reset } = methods;
 
-  // const onSubmit: SubmitHandler<FormData> = async (data) => {
-  //   try {
-  //     const responseData = await sendReq(
-  //       "http://localhost:4000/api/project",
-  //       "POST",
-  //       // @ts-ignore
-  //       JSON.stringify({
-  //         projectName: data.projectName,
-  //         description: data.description,
-  //         creator: auth.userId,
-  //       }),
-  //       { Authorization: "Bearer " + auth.token }
-  //     );
-
-  //     auth.isProject(responseData.project.id);
-
-  //     history.push(`/${auth.userId}/projects`);
-  //   } catch (err) {}
-  //   reset();
-  // };
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
       console.log("Request Data:", {
@@ -68,7 +48,7 @@ const NewProject = () => {
       });
 
       const responseData = await sendReq(
-        "http://localhost:4000/api/project",
+        "https://team-forge-backend-zdrga.ondigitalocean.app/api/project",
         "POST",
         // @ts-ignore
         JSON.stringify({
@@ -111,9 +91,14 @@ const NewProject = () => {
           <div className="flex items-center justify-start gap-4 mt-8">
             <Link to={"/" + auth.userId + "/projects"}>
               {/* <Button variant="cancel">Cancel</Button> */}
-              <Button className="text-gray-600 bg-gray-200">Cancel</Button>
+              <Button className="text-gray-600 transition-all bg-gray-200 hover:bg-gray-300">
+                Cancel
+              </Button>
             </Link>
-            <Button type="submit" className="text-white bg-primary">
+            <Button
+              type="submit"
+              className="text-white transition-all bg-primary hover:bg-primary_light "
+            >
               Create
             </Button>
           </div>

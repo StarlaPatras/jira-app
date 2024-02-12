@@ -38,7 +38,7 @@ const UpdateProject: React.FC = () => {
     const fetchData = async () => {
       try {
         const responseData = await sendReq(
-          `http://localhost:4000/api/project/${projectId}`,
+          `https://team-forge-backend-zdrga.ondigitalocean.app/api/project/${projectId}`,
           "GET"
         );
 
@@ -55,7 +55,7 @@ const UpdateProject: React.FC = () => {
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
       const responseData = await sendReq(
-        `http://localhost:4000/api/project/${projectId}`,
+        `https://team-forge-backend-zdrga.ondigitalocean.app/api/project/${projectId}`,
         "PATCH", // Use PATCH method for updating
         //@ts-ignore
         JSON.stringify(data),
@@ -82,9 +82,14 @@ const UpdateProject: React.FC = () => {
           <Input label="Description" name="description" inputType="textarea" />
           <div className="flex items-center justify-start gap-4 mt-8">
             <Link to={"/" + auth.userId + "/projects"}>
-              <Button className="text-gray-600 bg-gray-200">Cancel</Button>
+              <Button className="text-gray-600 transition-all bg-gray-200 hover:bg-gray-300">
+                Cancel
+              </Button>
             </Link>
-            <Button type="submit" className="text-white bg-primary">
+            <Button
+              type="submit"
+              className="text-white transition-all bg-primary hover:bg-primary_light"
+            >
               Update Project
             </Button>
           </div>

@@ -87,7 +87,7 @@ const Tickets: React.FC<TicketsProps> = ({
       {isFirstColumn && (
         <Button
           onClick={handleButtonClick}
-          className="my-3 text-gray-600 bg-blue-200"
+          className="my-3 text-gray-600 transition-all bg-blue-200 hover:text-gray-700 hover:bg-blue-300"
         >
           Create Issue
         </Button>

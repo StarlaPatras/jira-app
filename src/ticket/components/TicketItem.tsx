@@ -64,9 +64,14 @@ const TicketItem: React.FC<TicketItemProps> = ({
 
   const deleteTicketHandler = async () => {
     try {
-      await sendReq(`http://localhost:4000/api/ticket/${id}`, "DELETE", null, {
-        Authorization: "Bearer " + auth.token,
-      });
+      await sendReq(
+        `https://team-forge-backend-zdrga.ondigitalocean.app/api/ticket/${id}`,
+        "DELETE",
+        null,
+        {
+          Authorization: "Bearer " + auth.token,
+        }
+      );
       onDelete(id);
       setOpenErrorModal(false);
     } catch (err) {
@@ -85,7 +90,7 @@ const TicketItem: React.FC<TicketItemProps> = ({
   // const fetchData = async () => {
   //   try {
   //     const responseData = await sendReq(
-  //       `http://localhost:4000/api/ticket/${id}`,
+  //       `https://team-forge-backend-zdrga.ondigitalocean.app/api/ticket/${id}`,
   //       "GET"
   //     );
   //     setLoadedData(responseData.ticket);
@@ -96,7 +101,7 @@ const TicketItem: React.FC<TicketItemProps> = ({
   const fetchData = async () => {
     try {
       const responseData = await sendReq(
-        `http://localhost:4000/api/ticket/${id}`,
+        `https://team-forge-backend-zdrga.ondigitalocean.app/api/ticket/${id}`,
         "GET"
       );
 
@@ -115,7 +120,7 @@ const TicketItem: React.FC<TicketItemProps> = ({
     reset();
     // try {
     //   await sendReq(
-    //     `http://localhost:4000/api/ticket/${id}`,
+    //     `https://team-forge-backend-zdrga.ondigitalocean.app/api/ticket/${id}`,
     //     "PATCH",
     //     // @ts-ignore
     //     JSON.stringify({
@@ -162,7 +167,7 @@ const TicketItem: React.FC<TicketItemProps> = ({
               </p>
               <div className="flex items-center justify-center gap-5 pb-[30px]">
                 <Button
-                  className="text-gray-600 bg-gray-200"
+                  className="text-gray-600 transition-all bg-gray-200 hover:bg-gray-300"
                   onClick={() => setOpenErrorModal(false)}
                 >
                   Cancel
@@ -194,12 +199,14 @@ const TicketItem: React.FC<TicketItemProps> = ({
 
                 <div className="flex items-center justify-start gap-5 mt-3">
                   <Button
-                    className="text-gray-600 bg-gray-200"
+                    className="text-gray-600 transition-all bg-gray-200 hover:bg-gray-300"
                     onClick={() => setOpenModal(false)}
                   >
                     Cancel
                   </Button>
-                  <Button className="text-white bg-primary">Update</Button>
+                  <Button className="text-white transition-all bg-primary hover:bg-primary_light">
+                    Update
+                  </Button>
                 </div>
 
                 {/* <Button variant="header">Update</Button> */}
@@ -211,7 +218,7 @@ const TicketItem: React.FC<TicketItemProps> = ({
           {!firstColumn && (
             <button
               onClick={prevHandler}
-              className="flex items-center justify-center text-[13px] gap-1 p-1 mt-3 text-white bg-primary"
+              className="flex items-center justify-center text-[13px] gap-1 p-1 mt-3 bg-primary transition-all text-white hover:bg-primary_light"
             >
               Previous
               <PrevArrow size={20} color="#fff" />
@@ -219,7 +226,7 @@ const TicketItem: React.FC<TicketItemProps> = ({
           )}
           <button
             onClick={nextHandler}
-            className="flex items-center justify-center gap-1 text-[13px] p-1 mt-3 text-white bg-primary"
+            className="flex items-center justify-center gap-1 text-[13px] p-1 mt-3 transition-all bg-primary text-white hover:bg-primary_light"
           >
             Next
             <NextArrow size={20} color="#fff" />

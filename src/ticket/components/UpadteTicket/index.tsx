@@ -43,7 +43,7 @@ const UpdatedTicket = () => {
     const fetchData = async () => {
       try {
         const responseData = await sendReq(
-          `http://localhost:4000/api/ticket/${ticketId}`,
+          `https://team-forge-backend-zdrga.ondigitalocean.app/api/ticket/${ticketId}`,
           "GET"
         );
         setLoadedData(responseData.ticket);
@@ -58,7 +58,7 @@ const UpdatedTicket = () => {
 
     try {
       await sendReq(
-        `http://localhost:4000/api/ticket/${ticketId}`,
+        `https://team-forge-backend-zdrga.ondigitalocean.app/api/ticket/${ticketId}`,
         "PATCH",
         // @ts-ignore
         JSON.stringify(data),
@@ -78,7 +78,9 @@ const UpdatedTicket = () => {
         {isLoading && loadedData && <LoadingSpinner asOverlay />}
         <form onSubmit={handleSubmit(onSubmitHandler)}>
           <Input name="content" inputType="textarea" label="Content" />
-          <Button className="text-white bg-primary">UpdateTicket</Button>
+          <Button className="text-white transition-all bg-primary hover:bg-primary_light">
+            UpdateTicket
+          </Button>
         </form>
       </FormProvider>
     </Layout>

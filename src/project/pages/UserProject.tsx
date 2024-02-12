@@ -33,7 +33,7 @@ const UserProject = () => {
   const fetchProjects = async () => {
     try {
       const responseData = await sendReq(
-        `http://localhost:4000/api/project/user/${auth.userId}`
+        `https://team-forge-backend-zdrga.ondigitalocean.app/api/project/user/${auth.userId}`
       );
       setLoadedData(responseData.project);
     } catch (err) {}

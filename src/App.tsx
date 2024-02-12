@@ -14,6 +14,9 @@ import Signup from "./user/pages/Signup";
 import Login from "./user/pages/Login";
 import Project from "./project/pages/Project";
 import UpdateTicket from "./ticket/pages/UpdateTicket";
+import Members from "./Dashboard/Pages/Members";
+import Templates from "./Dashboard/Pages/Template";
+import Home from "./Dashboard/Pages/Home";
 
 // Context
 import { AuthContext } from "./context/AuthContext";
@@ -73,6 +76,15 @@ const App = () => {
                 <UpdateTicket />
               </Route>
 
+              <Route path="/members" exact>
+                <Members />
+              </Route>
+              <Route path="/home" exact>
+                <Home />
+              </Route>
+              <Route path="/template" exact>
+                <Templates />
+              </Route>
               <Redirect to="/projects/new" />
             </>
           )}

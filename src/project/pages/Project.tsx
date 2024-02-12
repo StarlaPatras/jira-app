@@ -52,7 +52,7 @@ const Project = () => {
   const fetchColumnData = async () => {
     try {
       const responseData = await sendReq(
-        `http://localhost:4000/api/column/projects/${projectId}`,
+        `https://team-forge-backend-zdrga.ondigitalocean.app/api/column/projects/${projectId}`,
         "GET"
       );
 
@@ -65,7 +65,7 @@ const Project = () => {
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
       await sendReq(
-        "http://localhost:4000/api/column",
+        "https://team-forge-backend-zdrga.ondigitalocean.app/api/column",
         "POST",
         // @ts-ignore
 
@@ -88,7 +88,7 @@ const Project = () => {
   const ticketHandler = async (content: string) => {
     try {
       await sendReq(
-        "http://localhost:4000/api/ticket",
+        "https://team-forge-backend-zdrga.ondigitalocean.app/api/ticket",
         "POST",
         // @ts-ignore
 
@@ -129,7 +129,7 @@ const Project = () => {
 
     try {
       await sendReq(
-        "http://localhost:4000/api/ticket/move",
+        "https://team-forge-backend-zdrga.ondigitalocean.app/api/ticket/move",
         "POST",
         // @ts-ignore
         JSON.stringify({
@@ -167,7 +167,7 @@ const Project = () => {
 
     try {
       await sendReq(
-        "http://localhost:4000/api/ticket/move",
+        "https://team-forge-backend-zdrga.ondigitalocean.app/api/ticket/move",
         "POST",
         // @ts-ignore
         JSON.stringify({
@@ -190,7 +190,7 @@ const Project = () => {
   const updateTicketHandler = async (content: string, id: string) => {
     try {
       await sendReq(
-        `http://localhost:4000/api/ticket/${id}`,
+        `https://team-forge-backend-zdrga.ondigitalocean.app/api/ticket/${id}`,
         "PATCH",
         // @ts-ignore
         JSON.stringify({
@@ -228,7 +228,7 @@ const Project = () => {
       </Modal>
       <Button
         onClick={openModalHandler}
-        className="flex items-center justify-center gap-2 text-white bg-primary"
+        className="flex items-center justify-center gap-2 mb-5 text-white transition-all bg-primary hover:bg-primary_light"
       >
         <Add />
         Add Columns

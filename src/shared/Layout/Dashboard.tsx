@@ -33,18 +33,18 @@ const Layout: React.FC<DashboardProps> = ({ children }) => {
     },
     {
       name: "Members",
-      link: "/",
+      link: "/members",
       icons: <Members size={19} />,
     },
     {
       name: "Template",
-      link: "/",
+      link: "/template",
       icons: <Template size={19} />,
     },
 
     {
       name: "Home",
-      link: "/",
+      link: "/home",
       icons: <Home size={19} />,
     },
   ];
@@ -70,13 +70,13 @@ const Layout: React.FC<DashboardProps> = ({ children }) => {
             ))}
           </ul>
           <Link to="/projects/new">
-            <Button className="flex items-center justify-center text-white bg-primary">
+            <Button className="flex items-center justify-center text-white transition-all bg-primary hover:bg-primary_light">
               <Add size={25} />
               Create
             </Button>
           </Link>{" "}
           <Button
-            className="text-gray-600 bg-gray-200"
+            className="text-gray-600 transition-all bg-gray-200 hover:bg-gray-300 "
             onClick={() => auth.isLogout()}
           >
             Logout

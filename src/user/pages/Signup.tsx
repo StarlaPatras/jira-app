@@ -44,7 +44,7 @@ const Signup = () => {
   const onSubmit: SubmitHandler<FormData> = async (data) => {
     try {
       const responseData = await sendReq(
-        "http://localhost:4000/api/user/signup",
+        "https://team-forge-backend-zdrga.ondigitalocean.app/api/user/signup",
         "POST",
         // @ts-ignore
         JSON.stringify({
