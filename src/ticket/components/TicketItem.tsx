@@ -177,7 +177,7 @@ const TicketItem: React.FC<TicketItemProps> = ({
                 </Button> */}
                 <Button
                   onClick={deleteTicketHandler}
-                  className="text-white bg-red-500"
+                  className="text-white bg-red-500 hover:bg-red-600"
                 >
                   Delete
                 </Button>

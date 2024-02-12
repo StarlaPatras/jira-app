@@ -61,11 +61,15 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
 
       <div className="flex items-center justify-end gap-2 mt-6">
         <Link to={`/projects/${id}`}>
-          <Button className="text-white bg-primary">Edit</Button>
+          <Button className="text-white transition-all bg-primary hover:bg-primary_light">
+            Edit
+          </Button>
         </Link>
 
         <div onClick={() => setOpenErrorModal(true)}>
-          <Button className="text-white bg-red-500">Delete</Button>
+          <Button className="text-white bg-red-500 hover:bg-red-600">
+            Delete
+          </Button>
         </div>
 
         <Modal
@@ -88,7 +92,10 @@ const ProjectItem: React.FC<ProjectItemProps> = ({
               Delete
             </Button> */}
             {/* <button onClick={deleteHandler}>Delete</button> */}
-            <Button className="text-white bg-red-500" onClick={deleteHandler}>
+            <Button
+              className="text-white bg-red-500 hover:bg-red-600"
+              onClick={deleteHandler}
+            >
               Delete
             </Button>
           </div>
